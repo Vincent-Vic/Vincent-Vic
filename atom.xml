@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>菜鸟Blog</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://vincent-vic.gitee.io/"/>
+  <updated>2020-03-19T03:42:53.181Z</updated>
+  <id>https://vincent-vic.gitee.io/</id>
+  
+  <author>
+    <name>Vincent Vic</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://vincent-vic.gitee.io/2020/03/19/hello-world/"/>
+    <id>https://vincent-vic.gitee.io/2020/03/19/hello-world/</id>
+    <published>2020-03-19T03:32:00.000Z</published>
+    <updated>2020-03-19T03:42:53.181Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Hello-第一篇文章"><a href="#Hello-第一篇文章" class="headerlink" title="Hello 第一篇文章"></a>Hello 第一篇文章</h1><h6 id="菜鸟选手也来写Blog了"><a href="#菜鸟选手也来写Blog了" class="headerlink" title="菜鸟选手也来写Blog了"></a>菜鸟选手也来写Blog了</h6><h6 id="我是Vincent-Vic-用最菜的方式划水"><a href="#我是Vincent-Vic-用最菜的方式划水" class="headerlink" title="我是Vincent Vic,用最菜的方式划水"></a>我是Vincent Vic,用最菜的方式划水</h6><h6 id="这个Blog-用来记录我的学习笔记，让自己习惯做笔记"><a href="#这个Blog-用来记录我的学习笔记，让自己习惯做笔记" class="headerlink" title="这个Blog 用来记录我的学习笔记，让自己习惯做笔记"></a>这个Blog 用来记录我的学习笔记，让自己习惯做笔记</h6><h4 id="简单算法，数据结构，C-，Java-都是我的学习目标"><a href="#简单算法，数据结构，C-，Java-都是我的学习目标" class="headerlink" title="简单算法，数据结构，C++，Java 都是我的学习目标"></a>简单算法，数据结构，C++，Java 都是我的学习目标</h4><h3 id="Stay-hungry-Stay-foolish！"><a href="#Stay-hungry-Stay-foolish！" class="headerlink" title="Stay hungry, Stay foolish！"></a>Stay hungry, Stay foolish！</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Hello-第一篇文章&quot;&gt;&lt;a href=&quot;#Hello-第一篇文章&quot; class=&quot;headerlink&quot; title=&quot;Hello 第一篇文章&quot;&gt;&lt;/a&gt;Hello 第一篇文章&lt;/h1&gt;&lt;h6 id=&quot;菜鸟选手也来写Blog了&quot;&gt;&lt;a href=&quot;#菜鸟选手也
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
