@@ -18,9 +18,9 @@
 <p>那把递归树画出来</p>
 <p><img src="/" alt="Tree 01" class="lazyload" data-src="/images/dynamic/base20200329/tree01.jpg"></p>
 <p>这是一棵fib(5)的计算建立的树图</p>
-<p><img src="/" alt="Tree 02" class="lazyload" data-src="/image/dynamic/base20200329/tree02.jpg"></p>
+<p><img src="/" alt="Tree 02" class="lazyload" data-src="/images/dynamic/base20200329/tree02.jpg"></p>
 <p>红色区域的是这颗树fib(3)出现的次数，出现了两次</p>
-<p><img src="/" alt="Tree 03" class="lazyload" data-src="/image/dynamic/base20200329/tree03.jpg"></p>
+<p><img src="/" alt="Tree 03" class="lazyload" data-src="/images/dynamic/base20200329/tree03.jpg"></p>
 <p>蓝色区域的是这颗树fib(2)出现的次数，出现了三次。</p>
 <p>这个数据量还是小的,这里可以拿起笔画画或者程序统计一下fib(10)，fib(20),fib(40)的树状图,看看fib(2),fib(3)这种重复执行的次数</p>
 <p>相信也能看出来递归的重复执行带来的性能消耗，那么我们可以把这些值存放起来，如果存在就不重复技术。</p>
