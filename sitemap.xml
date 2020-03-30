@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://vincent-vic.gitee.io/2020/03/27/python-jian-ming-jiao-cheng/</loc>
+    <loc>https://vincent-vic.gitee.io/article/a-byte-of-python-cn-master/</loc>
     
-    <lastmod>2020-03-27T16:53:03.226Z</lastmod>
+    <lastmod>2020-03-30T04:05:23.141Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent-vic.gitee.io/article/dynamic-base1/</loc>
+    
+    <lastmod>2020-03-30T04:03:02.563Z</lastmod>
     
   </url>
   
@@ -16,21 +23,21 @@
   </url>
   
   <url>
-    <loc>https://vincent-vic.gitee.io/2020/03/19/01-fu-za-du-3-er-fen-cha-zhao-20-fen/</loc>
+    <loc>https://vincent-vic.gitee.io/article/01-fu-za-du-3-er-fen-cha-zhao-20-fen/</loc>
     
     <lastmod>2020-03-23T15:16:15.925Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincent-vic.gitee.io/2020/03/23/socket-xue-xi-bi-ji-zhi-ru-men-1/</loc>
+    <loc>https://vincent-vic.gitee.io/article/socket-xue-xi-bi-ji-zhi-ru-men-1/</loc>
     
     <lastmod>2020-03-23T10:38:23.041Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://vincent-vic.gitee.io/2020/03/20/er-fen-sou-suo-shu/</loc>
+    <loc>https://vincent-vic.gitee.io/article/er-fen-sou-suo-shu/</loc>
     
     <lastmod>2020-03-23T09:37:47.489Z</lastmod>
     
@@ -44,7 +51,7 @@
   </url>
   
   <url>
-    <loc>https://vincent-vic.gitee.io/2020/03/19/hello-world/</loc>
+    <loc>https://vincent-vic.gitee.io/article/hello-world/</loc>
     
     <lastmod>2020-03-19T10:58:13.176Z</lastmod>
     
