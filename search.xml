@@ -10,8 +10,8 @@
 <h5 id="游戏自动打怪"><a href="#游戏自动打怪" class="headerlink" title="游戏自动打怪"></a>游戏自动打怪</h5><p>游戏角色自动打怪是否能更优先队列相关？先打血少的还是先打近的？还是漫无目的的</p>
 <h5 id="排名问题"><a href="#排名问题" class="headerlink" title="排名问题"></a>排名问题</h5><p>1000000 人总，怎么得到前100名</p>
 <p>在N个元素中选出前M个元素</p>
-<p>排序？ ==O(nlogn)==</p>
-<p>使用优先队列可以快多少？==O(nlogm)==</p>
+<p>排序？ <em>O(nlogn)</em></p>
+<p>使用优先队列可以快多少？<em>O(nlogm)</em></p>
 <h5 id="总而言之"><a href="#总而言之" class="headerlink" title="总而言之"></a>总而言之</h5><p>优先队列出队按最高优先级最高</p>
 <h2 id="什么是堆"><a href="#什么是堆" class="headerlink" title="什么是堆"></a>什么是堆</h2><blockquote>
 <p>堆(Heap))是一种重要的数据结构，是实现优先队列(Priority Queues)首选的数据结构。由于堆有很多种变体，包括二项式堆、斐波那契堆等，但是这里只考虑最常见的就是二叉堆（以下简称堆）。</p>
