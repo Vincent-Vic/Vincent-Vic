@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincent-vic.gitee.io/article/heap-and-sort/</loc>
+    
+    <lastmod>2020-03-31T14:38:36.477Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent-vic.gitee.io/article/binarysearchtree/</loc>
+    
+    <lastmod>2020-03-31T14:38:09.862Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincent-vic.gitee.io/article/dynamic-base1/</loc>
     
     <lastmod>2020-03-30T04:14:55.127Z</lastmod>
@@ -33,13 +47,6 @@
     <loc>https://vincent-vic.gitee.io/article/socket-xue-xi-bi-ji-zhi-ru-men-1/</loc>
     
     <lastmod>2020-03-23T10:38:23.041Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincent-vic.gitee.io/article/er-fen-sou-suo-shu/</loc>
-    
-    <lastmod>2020-03-23T09:37:47.489Z</lastmod>
     
   </url>
   
