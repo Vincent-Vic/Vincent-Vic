@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://vincent-vic.gitee.io/"/>
-  <updated>2020-03-31T14:42:05.718Z</updated>
+  <updated>2020-04-03T12:55:40.022Z</updated>
   <id>https://vincent-vic.gitee.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全国哀悼4月4日,为抗击疫情的战士们降半旗！</title>
+    <link href="https://vincent-vic.gitee.io/article/stand-in-silent-tribite/"/>
+    <id>https://vincent-vic.gitee.io/article/stand-in-silent-tribite/</id>
+    <published>2020-04-03T13:00:00.000Z</published>
+    <updated>2020-04-03T12:55:40.022Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="/" alt="" class="lazyload" data-src="/images/4.4.png"></p><p><a href="http://www.gov.cn/zhengce/content/2020-04/03/content_5498474.htm" target="_blank" rel="noopener"><img src="/" alt="" class="lazyload" data-src="/images/4.4txt.jpg"></a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;img src=&quot;/&quot; alt=&quot;&quot; class=&quot;lazyload&quot; data-src=&quot;/images/4.4.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.gov.cn/zhengce/content/2020-04/03/content_549
+      
+    
+    </summary>
+    
+    
+      <category term="默哀" scheme="https://vincent-vic.gitee.io/categories/%E9%BB%98%E5%93%80/"/>
+    
+    
+      <category term="向英雄致敬" scheme="https://vincent-vic.gitee.io/tags/%E5%90%91%E8%8B%B1%E9%9B%84%E8%87%B4%E6%95%AC/"/>
+    
+  </entry>
   
   <entry>
     <title>堆与堆排序</title>
