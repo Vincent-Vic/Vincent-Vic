@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://vincent-vic.gitee.io/article/avl-tree/</loc>
+    
+    <lastmod>2020-04-08T05:24:26.928Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://vincent-vic.gitee.io/article/binarysearchtree/</loc>
+    
+    <lastmod>2020-04-08T05:09:16.137Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://vincent-vic.gitee.io/article/stand-in-silent-tribite/</loc>
     
     <lastmod>2020-04-03T12:55:40.022Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>https://vincent-vic.gitee.io/article/heap-and-sort/</loc>
     
     <lastmod>2020-03-31T14:42:05.718Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://vincent-vic.gitee.io/article/binarysearchtree/</loc>
-    
-    <lastmod>2020-03-31T14:38:09.862Z</lastmod>
     
   </url>
   

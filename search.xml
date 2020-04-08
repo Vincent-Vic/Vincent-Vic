@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>AVL Tree</title>
+    <url>/article/avl-tree/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>基于AVL算法的自平衡二叉搜索是二叉搜索树的一个优化算法，本文所述AVL树基于BST基础上优化，如果BST树还没有了解过可以先看<strong><a href="https://vincent-vic.gitee.io/article/binarysearchtree/">《二分搜索树》</a></strong></p>
+<h2 id="平衡二叉树的概念"><a href="#平衡二叉树的概念" class="headerlink" title="平衡二叉树的概念"></a>平衡二叉树的概念</h2><h3 id="什么是平衡二叉树"><a href="#什么是平衡二叉树" class="headerlink" title="什么是平衡二叉树"></a>什么是平衡二叉树</h3><p>引用维基百科的介绍</p>
+<blockquote>
+<p>在计算机科学中，AVL树是最早被发明的自平衡二叉查找树。在AVL树中，任一节点对应的两棵子树的最大高度差为1，因此它也被称为高度平衡树。查找、插入和删除在平均和最坏情况下的时间复杂度都是O(log(n))。增加和删除元素的操作则可能需要借由一次或多次树旋转，以实现树的重新平衡。AVL树得名于它的发明者G. M. Adelson-Velsky和Evgenii Landis，他们在1962年的论文《An algorithm for the organization of information》中公开了这一数据结构。</p>
+<p>节点的平衡因子是它的左子树的高度减去它的右子树的高度（有时相反）。带有平衡因子1、0或 -1的节点被认为是平衡的。带有平衡因子 -2或2的节点被认为是不平衡的，并需要重新平衡这个树。平衡因子可以直接存储在每个节点中，或从可能存储在节点中的子树高度计算出来。</p>
+</blockquote>
+<p>如果二叉搜索树出现了有序的插入情况，那么就会出现图片这样的最坏情况（退化到链表结构）</p>
+<p><img src="/" alt="二叉搜索树最坏情况" class="lazyload" data-src="/images/AVL/base01/01.png"></p>
+<p>AVL平衡二叉树是普通二叉搜索树经典优化的一个算法思想</p>
+<h3 id="AVL-特性"><a href="#AVL-特性" class="headerlink" title="AVL 特性"></a>AVL 特性</h3><p><img src="/" alt="AVL" class="lazyload" data-src="/images/AVL/base01/02.png"></p>
+<p><strong>1.AVL 左右子树高度相差不能超过1</strong></p>
+<p><strong>2.平衡二叉树的高度和节点数量致敬的关系为O(logn)</strong></p>
+<p>这样一棵二叉树就不是平衡二叉树</p>
+<p><img src="/" alt="非平衡二叉树" class="lazyload" data-src="/images/AVL/base01/03.png"></p>
+<h3 id="AVL主要思路"><a href="#AVL主要思路" class="headerlink" title="AVL主要思路"></a>AVL主要思路</h3><blockquote>
+<p>AVL树的基本操作一般涉及运作同在不平衡的二叉查找树所运作的同样的算法。但是要进行预先或随后做一次或多次所谓的”AVL旋转”。</p>
+<p>以下图表以四列表示四种情况，每行表示在该种情况下要进行的操作。在左左和右右的情况下，只需要进行一次旋转操作；在左右和右左的情况下，需要进行两次旋转操作。</p>
+</blockquote>
+<p><img src="/" alt="AVL主要思路" class="lazyload" data-src="/images/AVL/base01/Tree_Rebalancing.png"></p>
+<h2 id="AVL维护自平衡算法"><a href="#AVL维护自平衡算法" class="headerlink" title="AVL维护自平衡算法"></a>AVL维护自平衡算法</h2><p>什么时候维护？</p>
+<p><img src="/" alt="什么时候维护" class="lazyload" data-src="/images/AVL/base01/04.png"></p>
+<p>在加入删除节点时都可能破坏平衡，所以需要在添加节点时加入自平衡机制</p>
+<p>那么先来看看AVL算法的整体机制，再来分解算法：</p>
+<p><img src="/" alt="添加时维护" class="lazyload" data-src="/images/AVL/base01/01.gif"></p>
+<p>添加时维护</p>
+<p><img src="/" alt="删除时维护" class="lazyload" data-src="/images/AVL/base01/02.gif"></p>
+<p>删除时维护</p>
+<p>从动图中我们可以发现维护平衡时不断的在向上回溯的检查平衡因子，当因子打破平衡时进行了一系列的维护操作。</p>
+<p>那我们AVL的算法程序就直接在二分搜索树中标记节点高度和计算平衡因子，为后续算法提供依据。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//计算平衡因子</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getBalanceFactor</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> getHeight(node-&gt;left) - getHeight(node-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>//在Node中加入height标记节点高度（本文实现初始化为1）</p>
+<p>//在原有BST基础上插入中加入</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;更新height -- AVL</span><br><span class="line">&#x2F;&#x2F; 高度为左右子节点高度最大值加1</span><br><span class="line">node-&gt;height &#x3D;  1 + max(getHeight(node-&gt;left),getHeight(node-&gt;right));</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="AVL-算法"><a href="#AVL-算法" class="headerlink" title="AVL 算法"></a>AVL 算法</h3><p>面对非平衡的算法</p>
+<p><img src="/" alt="非平衡二叉树" class="lazyload" data-src="/images/AVL/base01/03.png"></p>
+<p>AVL算法分为RR,LL,LR,RL四种情况</p>
+<h3 id="RR-右旋"><a href="#RR-右旋" class="headerlink" title="RR 右旋"></a>RR 右旋</h3><p><img src="/" alt="RR" class="lazyload" data-src="/images/AVL/base01/05.png"></p>
+<p>失衡节点为节点y,失衡节点节点的左节点x，步骤：把失衡节点加入到x的右节点，x原本右节点的加入到y的左节点</p>
+<p>完成操作之后需要更新y,x节点,这里y需要先更新，再更新x</p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对节点y进行向右旋转操作，返回旋转后新的根节点x</span></span><br><span class="line"><span class="comment">//        y                              x</span></span><br><span class="line"><span class="comment">//       / \                           /   \</span></span><br><span class="line"><span class="comment">//      x   T4     向右旋转 (y)        z     y</span></span><br><span class="line"><span class="comment">//     / \       - - - - - - - -&gt;    / \   / \</span></span><br><span class="line"><span class="comment">//    z   T3                       T1  T2 T3 T4</span></span><br><span class="line"><span class="comment">//   / \</span></span><br><span class="line"><span class="comment">// T1   T2</span></span><br><span class="line"><span class="function">Node* <span class="title">rightRotate</span><span class="params">(Node* y)</span></span>&#123;</span><br><span class="line">    Node* x = y-&gt;left;</span><br><span class="line">    Node* T3 = x-&gt;right;</span><br><span class="line"></span><br><span class="line">    x-&gt;right = y;</span><br><span class="line">    y-&gt;left = T3;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//更新height</span></span><br><span class="line">    y-&gt;height = max(getHeight(y-&gt;left),getHeight(y-&gt;right)) + <span class="number">1</span> ;</span><br><span class="line">    x-&gt;height = max(getHeight(x-&gt;left),getHeight(x-&gt;right)) + <span class="number">1</span> ;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="LL-左旋"><a href="#LL-左旋" class="headerlink" title="LL 左旋"></a>LL 左旋</h3><p><img src="/" alt="LL" class="lazyload" data-src="/images/AVL/base01/07.png"><br><img src="/" alt="LL" class="lazyload" data-src="/images/AVL/base01/06.png"></p>
+<p>左旋跟右旋相反，失衡节点为节点y,失衡节点节点的右节点x，步骤：把失衡节点加入到x的左节点，x原本左节点的加入到y的右节点</p>
+<p>完成操作之后需要更新y,x节点,这里y需要先更新，再更新x</p>
+<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 对节点y进行向左旋转操作，返回旋转后新的根节点x</span></span><br><span class="line"><span class="comment">//    y                             x</span></span><br><span class="line"><span class="comment">//  /  \                          /   \</span></span><br><span class="line"><span class="comment">// T1   x      向左旋转 (y)       y     z</span></span><br><span class="line"><span class="comment">//     / \   - - - - - - - -&gt;   / \   / \</span></span><br><span class="line"><span class="comment">//   T2  z                     T1 T2 T3 T4</span></span><br><span class="line"><span class="comment">//      / \</span></span><br><span class="line"><span class="comment">//     T3 T4</span></span><br><span class="line"><span class="function">Node* <span class="title">leftRotate</span><span class="params">(Node* y)</span> </span>&#123;</span><br><span class="line">    Node* x = y-&gt;right;</span><br><span class="line">    Node* T2 = x-&gt;left;</span><br><span class="line"></span><br><span class="line">    x-&gt;left = y;</span><br><span class="line">    y-&gt;right = T2;</span><br><span class="line">    <span class="comment">//更新height</span></span><br><span class="line">    y-&gt;height = max(getHeight(y-&gt;left),getHeight(y-&gt;right)) + <span class="number">1</span> ;</span><br><span class="line">    x-&gt;height = max(getHeight(x-&gt;left),getHeight(x-&gt;right)) + <span class="number">1</span> ;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="RR-和-LL-总结"><a href="#RR-和-LL-总结" class="headerlink" title="RR 和 LL 总结"></a>RR 和 LL 总结</h3><p><img src="/" alt="LL&amp;RR" class="lazyload" data-src="/images/AVL/base01/08.png"></p>
+<p>这样的情况只要通过左旋和右旋来就可以解决</p>
+<p><img src="/" alt="LL&amp;RR" class="lazyload" data-src="/images/AVL/base01/09.png"></p>
+<p>图中的出现在左边的右边节点造成因素，就不能直接右旋转，因为这样会导致搜索树不满足性质。AVL的最后两种算法</p>
+<hr>
+<h3 id="LR-先左旋再右旋"><a href="#LR-先左旋再右旋" class="headerlink" title="LR 先左旋再右旋"></a>LR 先左旋再右旋</h3><p><img src="/" alt="LR" class="lazyload" data-src="/images/AVL/base01/10.png"><br><img src="/" alt="LR" class="lazyload" data-src="/images/AVL/base01/11.png"></p>
+<h3 id="RL-先右旋再左旋"><a href="#RL-先右旋再左旋" class="headerlink" title="RL 先右旋再左旋"></a>RL 先右旋再左旋</h3><p><img src="/" alt="RL" class="lazyload" data-src="/images/AVL/base01/12.png"><br><img src="/" alt="RL" class="lazyload" data-src="/images/AVL/base01/13.png"></p>
+<h3 id="LR-和-RL-实现"><a href="#LR-和-RL-实现" class="headerlink" title="LR 和 RL 实现"></a>LR 和 RL 实现</h3><p>这里直接调用实现好的左旋和右旋</p>
+<h2 id="维护平衡的整体实现"><a href="#维护平衡的整体实现" class="headerlink" title="维护平衡的整体实现"></a>维护平衡的整体实现</h2><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 维护AVL平衡</span></span><br><span class="line"><span class="comment"> * @param node 失衡节点</span></span><br><span class="line"><span class="comment"> * @return 返回维护后的节点</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function">Node* <span class="title">retainAVL</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (node == <span class="literal">nullptr</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">    <span class="comment">//更新height -- AVL</span></span><br><span class="line">    <span class="comment">// 高度为左右子节点高度最大值加1</span></span><br><span class="line">    node-&gt;height =  <span class="number">1</span> + max(getHeight(node-&gt;left),getHeight(node-&gt;right));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//计算平衡因子</span></span><br><span class="line">    <span class="keyword">int</span> balaceFactor = getBalanceFactor(node);</span><br><span class="line">    <span class="comment">//左侧产生的失衡 LL</span></span><br><span class="line">    <span class="keyword">if</span>(balaceFactor &gt; <span class="number">1</span> &amp;&amp; getBalanceFactor(node-&gt;left) &gt;= <span class="number">0</span> )</span><br><span class="line">        <span class="keyword">return</span> rightRotate(node);<span class="comment">//右旋转</span></span><br><span class="line">    <span class="comment">//右侧产生的失衡 RR</span></span><br><span class="line">    <span class="keyword">if</span>(balaceFactor &lt; <span class="number">-1</span> &amp;&amp; getBalanceFactor(node-&gt;right) &lt;= <span class="number">0</span> )</span><br><span class="line">        <span class="keyword">return</span> leftRotate(node);<span class="comment">//左旋转</span></span><br><span class="line">    <span class="comment">//左侧的右侧产生的失衡 LR</span></span><br><span class="line">    <span class="keyword">if</span>(balaceFactor &gt; <span class="number">1</span> &amp;&amp; getBalanceFactor(node-&gt;left) &lt; <span class="number">0</span> )&#123;</span><br><span class="line">        node-&gt;left = leftRotate(node-&gt;left);</span><br><span class="line">        <span class="keyword">return</span> rightRotate(node);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//右侧的左侧产生的失衡 RL</span></span><br><span class="line">    <span class="keyword">if</span>(balaceFactor &lt; <span class="number">-1</span> &amp;&amp; getBalanceFactor(node-&gt;right) &gt; <span class="number">0</span> )&#123;</span><br><span class="line">        node-&gt;right = rightRotate(node-&gt;right);</span><br><span class="line">        <span class="keyword">return</span> leftRotate(node);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> node;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>剩下只需要在inster,remove,removeMax，removeMin中添加维护功能即可，这样就将普通的二叉搜索树修改成自平衡的二叉搜索树（AVL算法）</p>
+<hr>
+<h2 id="附加功能"><a href="#附加功能" class="headerlink" title="附加功能"></a>附加功能</h2><p>也实现了判断是否BST和是否平衡两个小功能</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判断以Node为根的二叉树是否是一颗平衡二叉树</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isBalanced</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(node == <span class="literal">nullptr</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">int</span> balanceFactor = getBalanceFactor(node);</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">abs</span>(balanceFactor) &gt; <span class="number">1</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> isBalanced(node-&gt;left) &amp;&amp; isBalanced(node-&gt;right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//判断是否是一棵二叉搜索树</span></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isBST</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">vector</span>&lt;Key&gt; keys;</span><br><span class="line">    inOrder(keys);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; keys.size(); ++i)</span><br><span class="line">        <span class="keyword">if</span> (keys[i] &lt; keys[i<span class="number">-1</span>]) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>详细代码欢迎访问gitee中查看：<a href="https://gitee.com/Vincent-Vic/DataOrganization/tree/master/BinarySearch" target="_blank" rel="noopener">AVL实现</a></p>
+<p>有什么问题欢迎大佬指出</p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>二分查找</tag>
+        <tag>搜索树</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>全国哀悼4月4日,为抗击疫情的战士们降半旗！</title>
     <url>/article/stand-in-silent-tribite/</url>
     <content><![CDATA[<p><img src="/" alt="" class="lazyload" data-src="/images/4.4.png"></p>
@@ -434,7 +518,7 @@
 <blockquote>
 <p>深度优先遍历实现代码</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以node为根的二叉树 进行先序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;key &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        preOrder(node-&gt;left);</span><br><span class="line">        preOrder(node-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 以node为根的二叉树 进行中序遍历 有序遍历二分搜索树</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inOrder</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        preOrder(node-&gt;left);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;key &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        preOrder(node-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以node为根的二叉树 进行后续遍历</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postOrder</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        preOrder(node-&gt;left);</span><br><span class="line">        preOrder(node-&gt;right);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;key &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">//以node为根的二叉树 进行先序遍历</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">preOrder</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;key &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        preOrder(node-&gt;left);</span><br><span class="line">        preOrder(node-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 以node为根的二叉树 进行中序遍历 有序遍历二分搜索树</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">inOrder</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        inOrder(node-&gt;left);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;key &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">        inOrder(node-&gt;right);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//以node为根的二叉树 进行后续遍历</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postOrder</span><span class="params">(Node* node)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (node != <span class="literal">NULL</span>)&#123;</span><br><span class="line">        postOrder(node-&gt;left);</span><br><span class="line">        postOrder(node-&gt;right);</span><br><span class="line">        <span class="built_in">cout</span>&lt;&lt;node-&gt;key &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>三种遍历遍历的实现均为递归策略，根据二分搜索树的定义和中序遍历的规则可以实现二叉树有序遍历，而后续遍历的特点可以作为树销毁的过程</p>
@@ -499,10 +583,10 @@
       </categories>
       <tags>
         <tag>二分查找</tag>
+        <tag>搜索树</tag>
         <tag>树</tag>
         <tag>BFS</tag>
         <tag>DFS</tag>
-        <tag>搜索树</tag>
       </tags>
   </entry>
   <entry>
