@@ -1,6 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>并查集六种实现迭代</title>
+    <url>/article/unionfind-base1/</url>
+    <content><![CDATA[<h3 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h3><p>并查集是一种树形的数据结构，顾名思义，它用于处理一些不交集的 合并 及 查询 问题。 它支持两种操作：</p>
+<p>查找（Find）：确定某个元素处于哪个子集；</p>
+<p>合并（Union）：将两个子集合并成一个集合。</p>
+<blockquote>
+<p>ps:数学集合的实现</p>
+</blockquote>
+<blockquote>
+<p>Warning：</p>
+<p>并查集不支持集合的分离、删除。</p>
+</blockquote>
+<hr>
+<h3 id="并查集解决问题"><a href="#并查集解决问题" class="headerlink" title="并查集解决问题"></a>并查集解决问题</h3><h4 id="连接问题"><a href="#连接问题" class="headerlink" title="连接问题"></a>连接问题</h4><p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/1.png"></p>
+<h3 id="并查集主要思路"><a href="#并查集主要思路" class="headerlink" title="并查集主要思路"></a>并查集主要思路</h3><p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/2.png"></p>
+<p>并查集本文以数组实现，实现六个版本的迭代</p>
+<hr>
+<h3 id="版本1-Quick-Find"><a href="#版本1-Quick-Find" class="headerlink" title="版本1 Quick-Find"></a>版本1 Quick-Find</h3><p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf1.png"></p>
+<p>第一个版本就是通过数组下标指向，基本功能，这里上代码就好了</p>
+<p>代码实现</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UnionFind</span> &#123;</span></span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">int</span>* id;</span><br><span class="line">        <span class="keyword">int</span> count;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="comment">//构造函数 创建并查集</span></span><br><span class="line">        <span class="function"><span class="keyword">explicit</span> <span class="title">UnionFind</span><span class="params">(<span class="keyword">int</span> count)</span> : <span class="title">count</span><span class="params">(count)</span> </span>&#123;</span><br><span class="line">            id = <span class="keyword">new</span> <span class="keyword">int</span> [count];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; ++i) &#123;</span><br><span class="line">                id[i] = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//析构 销毁数据</span></span><br><span class="line">        <span class="keyword">virtual</span> ~UnionFind()&#123;</span><br><span class="line">            <span class="keyword">delete</span> [] id;</span><br><span class="line">            id = <span class="literal">nullptr</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//找到数据</span></span><br><span class="line">        <span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;</span><br><span class="line">            assert(position &gt;= <span class="number">0</span> &amp;&amp; position &lt; count);</span><br><span class="line">            <span class="comment">//通过id直接返回</span></span><br><span class="line">            <span class="keyword">return</span> id[position];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//判断连通</span></span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">isConnected</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> q )</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> find(p) == find(q);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//并操作</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">unionElements</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> q)</span></span>&#123;</span><br><span class="line">            <span class="comment">//找到id</span></span><br><span class="line">            <span class="keyword">int</span> pID = find(p);</span><br><span class="line">            <span class="keyword">int</span> qID = find(q);</span><br><span class="line">            <span class="comment">//如果存在不用操作</span></span><br><span class="line">            <span class="keyword">if</span> (pID == qID)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            <span class="comment">//通过循环查找，指向操作</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;count;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span> (id[i] == pID)</span><br><span class="line">                    id[i] = qID;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>这个版本相对简单，后续代码会在这个基础上修改，一层一层的迭代</p>
+<hr>
+<h3 id="版本2-Quick-Union"><a href="#版本2-Quick-Union" class="headerlink" title="版本2 Quick-Union"></a>版本2 Quick-Union</h3><p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf2-1.png"></p>
+<p>这个版本我们改用父节点的方式去指向，这里也可以用指针实现</p>
+<p>看看大体逻辑</p>
+<p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf2.gif"></p>
+<p>每个节点指向父节点，查找同一个根来判断是否连接</p>
+<p>代码实现</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">id 修改为 parent</span><br><span class="line"></span><br><span class="line"><span class="comment">//查找根</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;</span><br><span class="line">        assert(position &gt;= <span class="number">0</span> &amp;&amp; position &lt; count);</span><br><span class="line">        <span class="comment">//找父节点</span></span><br><span class="line">        <span class="keyword">while</span> (position != parent[position])&#123;</span><br><span class="line">            position = parent[position];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> position;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//并的操作主要直接指向，减少了循环的操作</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unionElements</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> q)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">//找到两数的根</span></span><br><span class="line">            <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">            <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">            <span class="comment">//如果已经存在了</span></span><br><span class="line">            <span class="keyword">if</span> (pRoot == qRoot)</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            <span class="comment">//p的根指向q的根</span></span><br><span class="line">            parent[pRoot] = qRoot;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是存在节点深度偏高影响性能，图片的数据较少，需要大量数量测试</p>
+<p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf2-2.png"></p>
+<p>ps: 版本2 的 Quick-Union解决了合并的快速问题，但留下了查找的性能缺陷，后续代码均在本版本上优化</p>
+<hr>
+<h3 id="版本3-Optimize-by-Size"><a href="#版本3-Optimize-by-Size" class="headerlink" title="版本3 Optimize by Size"></a>版本3 Optimize by Size</h3><p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf3-1.png"></p>
+<p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf3-2.png"></p>
+<p>版本3这里优化这里主要解决层数太高，那最简单思路就是添加一个计算层次的数组</p>
+<p>代码实现 </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span>* sz; <span class="comment">//以i为根的个数 初始化1</span></span><br><span class="line"><span class="comment">//并操作 判断层数</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unionElements</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> q)</span></span>&#123;</span><br><span class="line">    <span class="comment">//找到两数的根</span></span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">//如果已经存在了</span></span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">//p的根下的少，指向q的根</span></span><br><span class="line">    <span class="keyword">if</span> (sz[pRoot] &lt;= sz[qRoot]) &#123;</span><br><span class="line">        <span class="comment">//p的根指向q的根</span></span><br><span class="line">        parent[pRoot] = qRoot;</span><br><span class="line">        <span class="comment">//q的根增加</span></span><br><span class="line">        sz[qRoot] += sz[pRoot];</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123; <span class="comment">//相反</span></span><br><span class="line">        parent[qRoot] = pRoot;</span><br><span class="line">        <span class="comment">//p的根增加</span></span><br><span class="line">        sz[pRoot]+= sz[qRoot];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="版本4-Optimize-by-Rand"><a href="#版本4-Optimize-by-Rand" class="headerlink" title="版本4 Optimize by Rand"></a>版本4 Optimize by Rand</h3><p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf4-1.png"></p>
+<p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf4-2.png"></p>
+<p>这两张图片突出版本3中按数量来分也会出现深度差距大的情况</p>
+<p>这个版本中我们把节点数改成层数</p>
+<p>实现代码 </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">sz 修改成 rank</span><br><span class="line"></span><br><span class="line"><span class="comment">//并操作 层数相等时更新</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unionElements</span><span class="params">(<span class="keyword">int</span> p,<span class="keyword">int</span> q)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//找到两数的根</span></span><br><span class="line">    <span class="keyword">int</span> pRoot = find(p);</span><br><span class="line">    <span class="keyword">int</span> qRoot = find(q);</span><br><span class="line">    <span class="comment">//如果已经存在了</span></span><br><span class="line">    <span class="keyword">if</span> (pRoot == qRoot)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="comment">//p的根下的层数少，指向q的根</span></span><br><span class="line">    <span class="keyword">if</span> (rank[pRoot] &lt; rank[qRoot]) &#123;</span><br><span class="line">        <span class="comment">//p的根指向q的根</span></span><br><span class="line">        parent[pRoot] = qRoot;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (rank[pRoot] &gt; rank[qRoot])&#123; <span class="comment">//相反</span></span><br><span class="line">        parent[qRoot] = pRoot;</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123; <span class="comment">// 层数相同的情况下</span></span><br><span class="line">        parent[pRoot] = qRoot;</span><br><span class="line">        rank[qRoot] ++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="版本5-压缩路径"><a href="#版本5-压缩路径" class="headerlink" title="版本5 压缩路径"></a>版本5 压缩路径</h3><p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf5-1.png"></p>
+<p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf5-2.png"></p>
+<p><img src="/" alt="" class="lazyload" data-src="/images/UnionFind/base01/uf5-3.png"></p>
+<p>路径压缩最简单的做法，两步一跳，减少层数，根指向了自己，也不会导致溢出</p>
+<p>代码实现这边也很简单 代码在版本4的基础之上</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;</span><br><span class="line">    assert(position &gt;= <span class="number">0</span> &amp;&amp; position &lt; count);</span><br><span class="line">    <span class="comment">//找父节点</span></span><br><span class="line">    <span class="keyword">while</span> (position != parent[position])&#123;</span><br><span class="line">        <span class="comment">//路径压缩算法</span></span><br><span class="line">        <span class="comment">//父节节点等于下一个父亲节点</span></span><br><span class="line">        parent[position] = parent[parent[position]];</span><br><span class="line">        position = parent[position];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> position;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="版本6-路径压缩递归法"><a href="#版本6-路径压缩递归法" class="headerlink" title="版本6 路径压缩递归法"></a>版本6 路径压缩递归法</h3><p>通过递归查找的方法，直接改变父节点的指向到最终节点，减少深度查找，但递归也是有一定的消耗</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> position)</span></span>&#123;</span><br><span class="line">    assert(position &gt;= <span class="number">0</span> &amp;&amp; position &lt; count);</span><br><span class="line">    <span class="comment">//找父节点  递归查找，直接让父节点指向根节点，减少层数</span></span><br><span class="line">    <span class="keyword">if</span> (position != parent[position])</span><br><span class="line">        parent[position] = find(parent[position]);</span><br><span class="line">    <span class="keyword">return</span> parent[position];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="测试数据"><a href="#测试数据" class="headerlink" title="测试数据"></a>测试数据</h3><p>n=1000000 </p>
+<p>测试数据：</p>
+<p>测试数据的是随机，不同情况有性能是不一样的</p>
+<blockquote>
+<p>UF6,2000000 ops,1.488 s</p>
+<p>UF5,2000000 ops,0.892 s</p>
+<p>UF4,2000000 ops,1.453 s</p>
+<p>UF3,2000000 ops,1.453 s</p>
+<p>UF2,2000000 ops,503.132 s</p>
+<p>UF1,2000000 ops,196.529 s</p>
+</blockquote>
+<hr>
+<p>测试数据很明显的的看出投两个算法的性能是比较差的</p>
+<p>关于UF1和UF2 再测试不同的数据 </p>
+<blockquote>
+<p>n= 10000</p>
+<p>UF2,20000 ops,0.551 s</p>
+<p>UF1,20000 ops,1.287 s</p>
+<p>n = 100000</p>
+<p>UF2,200000 ops,28.721 s</p>
+<p>UF1,200000 ops,19.265 s</p>
+<hr>
+<p>UF2,200000 ops,36.4 s</p>
+<p>UF1,200000 ops,38.567 s</p>
+</blockquote>
+<hr>
+<p>不同的数据的情况不一样，导致性能也不一样，UF1属于快速查找，只使用了O(1)，合并却使用了O(n)</p>
+<p>UF2 合并实现了O（1）的复杂度，但判断连通性的时候查找判断了两次，O(2n)的复杂度，后续版本也主要优化版本2的实现。</p>
+<hr>
+<p>这里提供了测试方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">void testUF1(int n)&#123;</span><br><span class="line">        srand(time(NULL));</span><br><span class="line">        UF1::UnionFind uf &#x3D; UF1::UnionFind(n);</span><br><span class="line"></span><br><span class="line">        time_t startTime &#x3D; clock();</span><br><span class="line"></span><br><span class="line">        for (int i &#x3D; 0; i &lt; n ; ++i) &#123;</span><br><span class="line">            int a &#x3D; rand() % n;</span><br><span class="line">            int b &#x3D; rand() % n;</span><br><span class="line">            uf.unionElements(a,b);</span><br><span class="line">        &#125;</span><br><span class="line">        for (int i &#x3D; 0; i &lt; n ; ++i) &#123;</span><br><span class="line">            int a &#x3D; rand() % n;</span><br><span class="line">            int b &#x3D; rand() % n;</span><br><span class="line">            uf.isConnected(a,b);</span><br><span class="line">        &#125;</span><br><span class="line">        time_t endTime &#x3D; clock();</span><br><span class="line"></span><br><span class="line">        cout&lt;&lt;&quot;UF1,&quot;&lt;&lt;2*n&lt;&lt;&quot; ops,&quot;&lt;&lt;double (endTime-startTime)&#x2F;CLOCKS_PER_SEC&lt;&lt;&quot; s&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p>本文还是存在瑕疵的，有问题欢迎指正，完整代码这里也给出了：<a href="https://gitee.com/Vincent-Vic/DataOrganization/tree/master/UnionFind" target="_blank" rel="noopener">并查集实现</a></p>
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Socket学习笔记之入门2 UDP</title>
     <url>/article/socket-xue-xi-bi-ji-zhi-ru-men-2/</url>
     <content><![CDATA[<h3 id="UDP"><a href="#UDP" class="headerlink" title="UDP"></a>UDP</h3><blockquote>
