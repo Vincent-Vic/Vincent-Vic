@@ -5,9 +5,9 @@
   <subtitle>哦豁，互相分享是美好的事情，即使是很基础的东西</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://vincent-vic.gitee.io/"/>
+  <link href="https://blog.iflags.cn/"/>
   <updated>2020-04-11T13:40:38.719Z</updated>
-  <id>https://vincent-vic.gitee.io/</id>
+  <id>https://blog.iflags.cn/</id>
   
   <author>
     <name>Vincent Vic</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Socket学习笔记之入门2 UDP</title>
-    <link href="https://vincent-vic.gitee.io/article/socket-xue-xi-bi-ji-zhi-ru-men-2/"/>
-    <id>https://vincent-vic.gitee.io/article/socket-xue-xi-bi-ji-zhi-ru-men-2/</id>
+    <link href="https://blog.iflags.cn/article/socket-xue-xi-bi-ji-zhi-ru-men-2/"/>
+    <id>https://blog.iflags.cn/article/socket-xue-xi-bi-ji-zhi-ru-men-2/</id>
     <published>2020-04-11T13:40:00.000Z</published>
     <updated>2020-04-11T13:40:38.719Z</updated>
     
@@ -36,21 +36,21 @@
     </summary>
     
     
-      <category term="Socket" scheme="https://vincent-vic.gitee.io/categories/Socket/"/>
+      <category term="Socket" scheme="https://blog.iflags.cn/categories/Socket/"/>
     
     
-      <category term="Socket" scheme="https://vincent-vic.gitee.io/tags/Socket/"/>
+      <category term="Socket" scheme="https://blog.iflags.cn/tags/Socket/"/>
     
-      <category term="网络编程" scheme="https://vincent-vic.gitee.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+      <category term="网络编程" scheme="https://blog.iflags.cn/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="UDP" scheme="https://vincent-vic.gitee.io/tags/UDP/"/>
+      <category term="UDP" scheme="https://blog.iflags.cn/tags/UDP/"/>
     
   </entry>
   
   <entry>
     <title>AVL Tree</title>
-    <link href="https://vincent-vic.gitee.io/article/avl-tree/"/>
-    <id>https://vincent-vic.gitee.io/article/avl-tree/</id>
+    <link href="https://blog.iflags.cn/article/avl-tree/"/>
+    <id>https://blog.iflags.cn/article/avl-tree/</id>
     <published>2020-04-08T05:09:00.000Z</published>
     <updated>2020-04-08T05:24:26.928Z</updated>
     
@@ -66,19 +66,19 @@
     </summary>
     
     
-      <category term="算法" scheme="https://vincent-vic.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://blog.iflags.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="二分查找" scheme="https://vincent-vic.gitee.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <category term="二分查找" scheme="https://blog.iflags.cn/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
-      <category term="搜索树" scheme="https://vincent-vic.gitee.io/tags/%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+      <category term="搜索树" scheme="https://blog.iflags.cn/tags/%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     
   </entry>
   
   <entry>
     <title>全国哀悼4月4日,为抗击疫情的战士们降半旗！</title>
-    <link href="https://vincent-vic.gitee.io/article/stand-in-silent-tribite/"/>
-    <id>https://vincent-vic.gitee.io/article/stand-in-silent-tribite/</id>
+    <link href="https://blog.iflags.cn/article/stand-in-silent-tribite/"/>
+    <id>https://blog.iflags.cn/article/stand-in-silent-tribite/</id>
     <published>2020-04-03T13:00:00.000Z</published>
     <updated>2020-04-03T12:55:40.022Z</updated>
     
@@ -95,17 +95,17 @@
     </summary>
     
     
-      <category term="默哀" scheme="https://vincent-vic.gitee.io/categories/%E9%BB%98%E5%93%80/"/>
+      <category term="默哀" scheme="https://blog.iflags.cn/categories/%E9%BB%98%E5%93%80/"/>
     
     
-      <category term="向英雄致敬" scheme="https://vincent-vic.gitee.io/tags/%E5%90%91%E8%8B%B1%E9%9B%84%E8%87%B4%E6%95%AC/"/>
+      <category term="向英雄致敬" scheme="https://blog.iflags.cn/tags/%E5%90%91%E8%8B%B1%E9%9B%84%E8%87%B4%E6%95%AC/"/>
     
   </entry>
   
   <entry>
     <title>堆与堆排序</title>
-    <link href="https://vincent-vic.gitee.io/article/heap-and-sort/"/>
-    <id>https://vincent-vic.gitee.io/article/heap-and-sort/</id>
+    <link href="https://blog.iflags.cn/article/heap-and-sort/"/>
+    <id>https://blog.iflags.cn/article/heap-and-sort/</id>
     <published>2020-03-31T14:07:00.000Z</published>
     <updated>2020-03-31T14:42:05.718Z</updated>
     
@@ -123,19 +123,19 @@
     </summary>
     
     
-      <category term="算法" scheme="https://vincent-vic.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://blog.iflags.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="二叉堆" scheme="https://vincent-vic.gitee.io/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
+      <category term="二叉堆" scheme="https://blog.iflags.cn/tags/%E4%BA%8C%E5%8F%89%E5%A0%86/"/>
     
-      <category term="树" scheme="https://vincent-vic.gitee.io/tags/%E6%A0%91/"/>
+      <category term="树" scheme="https://blog.iflags.cn/tags/%E6%A0%91/"/>
     
   </entry>
   
   <entry>
     <title>动态规划基础1</title>
-    <link href="https://vincent-vic.gitee.io/article/dynamic-base1/"/>
-    <id>https://vincent-vic.gitee.io/article/dynamic-base1/</id>
+    <link href="https://blog.iflags.cn/article/dynamic-base1/"/>
+    <id>https://blog.iflags.cn/article/dynamic-base1/</id>
     <published>2020-03-30T03:52:27.000Z</published>
     <updated>2020-03-30T04:14:55.127Z</updated>
     
@@ -152,19 +152,19 @@
     </summary>
     
     
-      <category term="算法" scheme="https://vincent-vic.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://blog.iflags.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="最短路径和" scheme="https://vincent-vic.gitee.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E5%92%8C/"/>
+      <category term="最短路径和" scheme="https://blog.iflags.cn/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84%E5%92%8C/"/>
     
-      <category term="动态规划" scheme="https://vincent-vic.gitee.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
+      <category term="动态规划" scheme="https://blog.iflags.cn/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
   </entry>
   
   <entry>
     <title>Socket学习笔记之入门1</title>
-    <link href="https://vincent-vic.gitee.io/article/socket-xue-xi-bi-ji-zhi-ru-men-1/"/>
-    <id>https://vincent-vic.gitee.io/article/socket-xue-xi-bi-ji-zhi-ru-men-1/</id>
+    <link href="https://blog.iflags.cn/article/socket-xue-xi-bi-ji-zhi-ru-men-1/"/>
+    <id>https://blog.iflags.cn/article/socket-xue-xi-bi-ji-zhi-ru-men-1/</id>
     <published>2020-03-23T07:15:00.000Z</published>
     <updated>2020-04-11T03:56:49.480Z</updated>
     
@@ -181,19 +181,19 @@
     </summary>
     
     
-      <category term="Socket" scheme="https://vincent-vic.gitee.io/categories/Socket/"/>
+      <category term="Socket" scheme="https://blog.iflags.cn/categories/Socket/"/>
     
     
-      <category term="Socket" scheme="https://vincent-vic.gitee.io/tags/Socket/"/>
+      <category term="Socket" scheme="https://blog.iflags.cn/tags/Socket/"/>
     
-      <category term="网络编程" scheme="https://vincent-vic.gitee.io/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
+      <category term="网络编程" scheme="https://blog.iflags.cn/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>二分搜索树</title>
-    <link href="https://vincent-vic.gitee.io/article/binarysearchtree/"/>
-    <id>https://vincent-vic.gitee.io/article/binarysearchtree/</id>
+    <link href="https://blog.iflags.cn/article/binarysearchtree/"/>
+    <id>https://blog.iflags.cn/article/binarysearchtree/</id>
     <published>2020-03-20T08:13:00.000Z</published>
     <updated>2020-04-08T05:09:16.137Z</updated>
     
@@ -210,25 +210,25 @@
     </summary>
     
     
-      <category term="算法" scheme="https://vincent-vic.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://blog.iflags.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="二分查找" scheme="https://vincent-vic.gitee.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <category term="二分查找" scheme="https://blog.iflags.cn/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
-      <category term="搜索树" scheme="https://vincent-vic.gitee.io/tags/%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
+      <category term="搜索树" scheme="https://blog.iflags.cn/tags/%E6%90%9C%E7%B4%A2%E6%A0%91/"/>
     
-      <category term="树" scheme="https://vincent-vic.gitee.io/tags/%E6%A0%91/"/>
+      <category term="树" scheme="https://blog.iflags.cn/tags/%E6%A0%91/"/>
     
-      <category term="BFS" scheme="https://vincent-vic.gitee.io/tags/BFS/"/>
+      <category term="BFS" scheme="https://blog.iflags.cn/tags/BFS/"/>
     
-      <category term="DFS" scheme="https://vincent-vic.gitee.io/tags/DFS/"/>
+      <category term="DFS" scheme="https://blog.iflags.cn/tags/DFS/"/>
     
   </entry>
   
   <entry>
     <title>01-复杂度3 二分查找 (20分)</title>
-    <link href="https://vincent-vic.gitee.io/article/01-fu-za-du-3-er-fen-cha-zhao-20-fen/"/>
-    <id>https://vincent-vic.gitee.io/article/01-fu-za-du-3-er-fen-cha-zhao-20-fen/</id>
+    <link href="https://blog.iflags.cn/article/01-fu-za-du-3-er-fen-cha-zhao-20-fen/"/>
+    <id>https://blog.iflags.cn/article/01-fu-za-du-3-er-fen-cha-zhao-20-fen/</id>
     <published>2020-03-19T09:56:00.000Z</published>
     <updated>2020-03-23T15:16:15.925Z</updated>
     
@@ -244,17 +244,17 @@
     </summary>
     
     
-      <category term="算法" scheme="https://vincent-vic.gitee.io/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://blog.iflags.cn/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="二分查找" scheme="https://vincent-vic.gitee.io/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <category term="二分查找" scheme="https://blog.iflags.cn/tags/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://vincent-vic.gitee.io/article/hello-world/"/>
-    <id>https://vincent-vic.gitee.io/article/hello-world/</id>
+    <link href="https://blog.iflags.cn/article/hello-world/"/>
+    <id>https://blog.iflags.cn/article/hello-world/</id>
     <published>2020-03-19T03:32:00.000Z</published>
     <updated>2020-03-19T10:58:13.176Z</updated>
     
@@ -271,7 +271,7 @@
     
     
     
-      <category term="个人" scheme="https://vincent-vic.gitee.io/tags/%E4%B8%AA%E4%BA%BA/"/>
+      <category term="个人" scheme="https://blog.iflags.cn/tags/%E4%B8%AA%E4%BA%BA/"/>
     
   </entry>
   
