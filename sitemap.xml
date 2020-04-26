@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.iflags.cn/article/dynamic-base2/</loc>
+    
+    <lastmod>2020-04-26T02:27:28.699Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.iflags.cn/article/unionfind-base1/</loc>
     
     <lastmod>2020-04-24T14:53:27.790Z</lastmod>
