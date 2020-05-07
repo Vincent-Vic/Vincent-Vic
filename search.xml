@@ -212,7 +212,7 @@
 <p>UDP报文没有可靠性保证、顺序保证和流量控制字段等，可靠性较差。但是正因为UDP协议的控制选项较少，在数据传输过程中延迟小、数据传输效率高，适合对可靠性要求不高的应用程序，或者可以保障可靠性的应用程序，如DNS、TFTP、SNMP等。</p>
 </blockquote>
 <p>报文结构</p>
-<p><img src="/" alt="UDP" class="lazyload" data-src="/images/socket/dome20200411/1.png"></p>
+<p><img src="/" alt="UDP" class="lazyload" data-src="/images/socket/dome02/1.png"></p>
 <p>UDP最大长度</p>
 <p>16位 -&gt; 2字节 存储长度信息</p>
 <p>2^16-1 = 64k - 1 = 64-1 = 65536 - 1 = 65535</p>
@@ -228,8 +228,8 @@
 <p>将byte数组，目标地址，目标端口等数据保证成报文或者将报文拆解成byte数组</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//              数据        起始区间   长度      目标地址           目标端口</span></span><br><span class="line">DatagramPacket(<span class="keyword">byte</span>[] buf,<span class="keyword">int</span> offset,<span class="keyword">int</span> length,InetAddress address,<span class="keyword">int</span> port)</span><br><span class="line"></span><br><span class="line"><span class="comment">//              数据        起始区间   长度      目标地址+端口           </span></span><br><span class="line">DatagramPacket(<span class="keyword">byte</span>[] buf,<span class="keyword">int</span> offset,<span class="keyword">int</span> length,SocketAddress address)</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置数据</span></span><br><span class="line">setData(<span class="keyword">byte</span>[] buf,<span class="keyword">int</span> offset,<span class="keyword">int</span> length)</span><br><span class="line">setData(<span class="keyword">byte</span>[] buf) <span class="comment">//默认全部</span></span><br><span class="line">setLength(<span class="keyword">int</span> length) <span class="comment">//设置长度</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//获取数据</span></span><br><span class="line">getData()、getOffset()、getLength()</span><br><span class="line"></span><br><span class="line"><span class="comment">//设置地址和端口</span></span><br><span class="line">setAddress(InetAddress iaddr)</span><br><span class="line">setPort(<span class="keyword">int</span> iport)</span><br><span class="line">setSocketAddress(SocketAddress address)</span><br><span class="line"></span><br><span class="line"><span class="comment">//得到地址和端口</span></span><br><span class="line">getAddress()</span><br><span class="line">getPort()</span><br><span class="line">getSocketAddress()</span><br></pre></td></tr></table></figure>
 
-<h3 id="单播-广播-多播"><a href="#单播-广播-多播" class="headerlink" title="单播/广播/多播"></a>单播/广播/多播</h3><p><img src="/" alt="单播/广播/多播" class="lazyload" data-src="/images/socket/dome20200411/2.png"></p>
-<h4 id="IP网段"><a href="#IP网段" class="headerlink" title="IP网段"></a>IP网段</h4><p><img src="/" alt="IP网段" class="lazyload" data-src="/images/socket/dome20200411/3.png"></p>
+<h3 id="单播-广播-多播"><a href="#单播-广播-多播" class="headerlink" title="单播/广播/多播"></a>单播/广播/多播</h3><p><img src="/" alt="单播/广播/多播" class="lazyload" data-src="/images/socket/dome02/2.png"></p>
+<h4 id="IP网段"><a href="#IP网段" class="headerlink" title="IP网段"></a>IP网段</h4><p><img src="/" alt="IP网段" class="lazyload" data-src="/images/socket/dome02/3.png"></p>
 <h4 id="广播地址"><a href="#广播地址" class="headerlink" title="广播地址"></a>广播地址</h4><p>255.255.255.255 受限广播地址</p>
 <p>C网广播地址一般为：xxx.xxx.xxx.255 (192.168.1.255)</p>
 <h3 id="UDP简单例子"><a href="#UDP简单例子" class="headerlink" title="UDP简单例子"></a>UDP简单例子</h3><p>接收者端</p>
@@ -261,7 +261,7 @@
   <entry>
     <title>AVL Tree</title>
     <url>/article/avl-tree/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>基于AVL算法的自平衡二叉搜索是二叉搜索树的一个优化算法，本文所述AVL树基于BST基础上优化，如果BST树还没有了解过可以先看<strong><a href="https://vincent-vic.gitee.io/article/binarysearchtree/">《二分搜索树》</a></strong></p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>基于AVL算法的自平衡二叉搜索是二叉搜索树的一个优化算法，本文所述AVL树基于BST基础上优化，如果BST树还没有了解过可以先看<strong><a href="https://vincent-vic.gitee.io/article/binarysearchtree/" target="_blank" rel="noopener">《二分搜索树》</a></strong></p>
 <h2 id="平衡二叉树的概念"><a href="#平衡二叉树的概念" class="headerlink" title="平衡二叉树的概念"></a>平衡二叉树的概念</h2><h3 id="什么是平衡二叉树"><a href="#什么是平衡二叉树" class="headerlink" title="什么是平衡二叉树"></a>什么是平衡二叉树</h3><p>引用维基百科的介绍</p>
 <blockquote>
 <p>在计算机科学中，AVL树是最早被发明的自平衡二叉查找树。在AVL树中，任一节点对应的两棵子树的最大高度差为1，因此它也被称为高度平衡树。查找、插入和删除在平均和最坏情况下的时间复杂度都是O(log(n))。增加和删除元素的操作则可能需要借由一次或多次树旋转，以实现树的重新平衡。AVL树得名于它的发明者G. M. Adelson-Velsky和Evgenii Landis，他们在1962年的论文《An algorithm for the organization of information》中公开了这一数据结构。</p>
@@ -469,8 +469,8 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>二叉堆</tag>
         <tag>树</tag>
+        <tag>二叉堆</tag>
       </tags>
   </entry>
   <entry>
@@ -489,11 +489,11 @@
 <p>指数级别的复杂度，O(2^n)</p>
 </blockquote>
 <p>那把递归树画出来</p>
-<p><img src="/" alt="Tree 01" class="lazyload" data-src="/images/dynamic/base20200329/tree01.jpg"></p>
+<p><img src="/" alt="Tree 01" class="lazyload" data-src="/images/dynamic/base01/tree01.jpg"></p>
 <p>这是一棵fib(5)的计算建立的树图</p>
-<p><img src="/" alt="Tree 02" class="lazyload" data-src="/images/dynamic/base20200329/tree02.jpg"></p>
+<p><img src="/" alt="Tree 02" class="lazyload" data-src="/images/dynamic/base01/tree02.jpg"></p>
 <p>红色区域的是这颗树fib(3)出现的次数，出现了两次</p>
-<p><img src="/" alt="Tree 03" class="lazyload" data-src="/images/dynamic/base20200329/tree03.jpg"></p>
+<p><img src="/" alt="Tree 03" class="lazyload" data-src="/images/dynamic/base01/tree03.jpg"></p>
 <p>蓝色区域的是这颗树fib(2)出现的次数，出现了三次。</p>
 <p>这个数据量还是小的,这里可以拿起笔画画或者程序统计一下fib(10)，fib(20),fib(40)的树状图,看看fib(2),fib(3)这种重复执行的次数</p>
 <p>相信也能看出来递归的重复执行带来的性能消耗，那么我们可以把这些值存放起来，如果存在就不重复技术。</p>
@@ -506,7 +506,7 @@
 <p>dynamic programming（also known as dynamic optimization）is a method for solving a complex problem by breaking it down into a collection of simple subproblems，solving each of those subproblems just once，and storing their solutions -ideally，using a memory-based data structure.</p>
 <p>将原问题拆解成若干子问题，同时保存子问题的答案，使得每个子问题只求解一次，最终获得原问题的答案。<br>s</p>
 </blockquote>
-<p><img src="/" alt="Dynamic" class="lazyload" data-src="/images/dynamic/base20200329/sl.jpg"></p>
+<p><img src="/" alt="Dynamic" class="lazyload" data-src="/images/dynamic/base01/sl.jpg"></p>
 <hr>
 <p>来看一下</p>
 <h2 id="LeetCode-70-爬楼梯"><a href="#LeetCode-70-爬楼梯" class="headerlink" title="LeetCode 70. 爬楼梯"></a><a href="https://leetcode-cn.com/problems/climbing-stairs/" target="_blank" rel="noopener">LeetCode 70. 爬楼梯</a></h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>假设你正在爬楼梯。需要 n 阶你才能到达楼顶。</p>
@@ -533,7 +533,7 @@
 
 
 <p>在 n = 5 时的递归树将是这样的：</p>
-<p><img src="/" alt="暴力求解树" class="lazyload" data-src="/images/dynamic/base20200329/tree04.jpg"></p>
+<p><img src="/" alt="暴力求解树" class="lazyload" data-src="/images/dynamic/base01/tree04.jpg"></p>
 <p><strong>复杂度分析</strong></p>
 <p>时间复杂度：O(2^n)，树形递归的大小为 2^n</p>
 <p>空间复杂度：O(n)，递归树的深度可以达到n</p>
@@ -570,14 +570,14 @@
 <p>T[i][j]相邻的是T[i+1][j]和T[i+1][j+1]</p>
 </blockquote>
 <p>//自顶向下</p>
-<p><img src="/" alt="三角形最小路径和" class="lazyload" data-src="/images/dynamic/base20200329/path00.gif"></p>
+<p><img src="/" alt="三角形最小路径和" class="lazyload" data-src="/images/dynamic/base01/path00.gif"></p>
 <p>这里需要判断四种情况，上边界（第二行），左右边界和非边界</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">上边界（第二行）的情况直接对前一行进行累加( i &#x3D;&#x3D; 1 ) ，triangle[i][j] +&#x3D; triangle[0][0];</span><br><span class="line"></span><br><span class="line">左边第一列的情况( j &#x3D;&#x3D; 0)，triangle[i][j] +&#x3D; triangle[i-1][j];</span><br><span class="line"></span><br><span class="line">右边最后一列的情况 ( j &#x3D;&#x3D; i )，triangle[i][j] +&#x3D; triangle[i-1][j-1];</span><br><span class="line"></span><br><span class="line">非边界情况，  triangle[i][j] +&#x3D; min(triangle[i-1][j],triangle[i-1][j-1]);</span><br></pre></td></tr></table></figure>
 
 <h4 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minimumTotal</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; triangle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(triangle.size() == <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> triangle[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> minSum = INT8_MAX;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; triangle.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> ( i == <span class="number">1</span> )&#123;  <span class="comment">//第二行的情况直接对前一行进行累加</span></span><br><span class="line">                    triangle[i][j] += triangle[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>( j == <span class="number">0</span>)&#123; <span class="comment">//左边第一列的情况</span></span><br><span class="line">                    triangle[i][j] += triangle[i<span class="number">-1</span>][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span>( j == i )&#123; <span class="comment">//右边最后一列的情况</span></span><br><span class="line">                    triangle[i][j] += triangle[i<span class="number">-1</span>][j<span class="number">-1</span>];</span><br><span class="line">                &#125; <span class="keyword">else</span>&#123; <span class="comment">//非边界情况</span></span><br><span class="line">                    triangle[i][j] += min(triangle[i<span class="number">-1</span>][j],triangle[i<span class="number">-1</span>][j<span class="number">-1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> ( i == triangle.size() - <span class="number">1</span>)&#123; <span class="comment">//判断最后一行的情况，查找最小</span></span><br><span class="line">                    minSum = min(minSum,triangle[i][j]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> minSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
 <p>自底向上的思路</p>
-<p><img src="/" alt="三角形最小路径和" class="lazyload" data-src="/images/dynamic/base20200329/path01.gif"></p>
+<p><img src="/" alt="三角形最小路径和" class="lazyload" data-src="/images/dynamic/base01/path01.gif"></p>
 <p>从倒数第二行还是计算：dp[i][j] = min(dp[i+1][j],dp[i+j][j+1])+dp[i][j];</p>
 <p>自底向上就不用考虑边界问题</p>
 <p>代码实现</p>
@@ -599,7 +599,7 @@
 <p>四种情况：起点、上边界、左边界、非边界</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">起 点： 当前节点既是上边界也是左边界(i &#x3D;&#x3D; 0 &amp;&amp; j &#x3D;&#x3D; 0)时，  grid[i][j] &#x3D; grid[i][j];</span><br><span class="line">上边界：当只是上边界时(i &#x3D;&#x3D;0 &amp;&amp; j ！&#x3D; 0) , grid[i][j] &#x3D; grid[i][j-1] + grid[i][j];</span><br><span class="line">左边界：当是左边界但不是上边界时(i !&#x3D; 0 &amp;&amp; j &#x3D;&#x3D; 0)，grid[i][j] &#x3D; grid[i-1][j] + grid[i][j];</span><br><span class="line">非边界：当不是边界(i !&#x3D; 0 &amp;&amp; j !&#x3D; 0),grid[i][j] &#x3D; min(grid[i-1][j],grid[i][j-1]) + grid[i][j];</span><br></pre></td></tr></table></figure>
 
-<p><img src="/" alt="最小路径和" class="lazyload" data-src="/images/dynamic/base20200329/path02.gif"></p>
+<p><img src="/" alt="最小路径和" class="lazyload" data-src="/images/dynamic/base01/path02.gif"></p>
 <h5 id="复杂度分析-1"><a href="#复杂度分析-1" class="headerlink" title="复杂度分析"></a>复杂度分析</h5><p>时间复杂度O(M×N) ： 遍历整个 grid矩阵元素。<br>空间复杂度 O(1)： 直接修改原矩阵，不使用额外空间。</p>
 <h4 id="实现代码-1"><a href="#实现代码-1" class="headerlink" title="实现代码"></a>实现代码</h4><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">minPathSum</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; grid)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; grid.size(); ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; grid[i].size(); ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>)&#123; <span class="comment">//起点情况</span></span><br><span class="line">                    grid[i][j] = grid[i][j];</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (i == <span class="number">0</span> &amp;&amp; j != <span class="number">0</span>)&#123; <span class="comment">//上边界情况</span></span><br><span class="line">                    grid[i][j] = grid[i][j<span class="number">-1</span>] + grid[i][j];</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (i != <span class="number">0</span> &amp;&amp; j == <span class="number">0</span>)&#123; <span class="comment">//左边界情况（不在上边界的情况）</span></span><br><span class="line">                    grid[i][j] = grid[i<span class="number">-1</span>][j] + grid[i][j];</span><br><span class="line">                &#125;<span class="keyword">else</span> <span class="keyword">if</span> (i != <span class="number">0</span> &amp;&amp; j != <span class="number">0</span>)&#123; <span class="comment">//非边界</span></span><br><span class="line">                    grid[i][j] = min(grid[i<span class="number">-1</span>][j],grid[i][j<span class="number">-1</span>]) + grid[i][j];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> grid[grid.size()<span class="number">-1</span>][grid[<span class="number">0</span>].size()<span class="number">-1</span>] ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
@@ -618,7 +618,7 @@
     <title>Socket学习笔记之入门1</title>
     <url>/article/socket-xue-xi-bi-ji-zhi-ru-men-1/</url>
     <content><![CDATA[<p>一个简单的SocketDemo快速入门</p>
-<h3 id="什么是计算机网络，网络是怎么构成的？"><a href="#什么是计算机网络，网络是怎么构成的？" class="headerlink" title="什么是计算机网络，网络是怎么构成的？"></a>什么是计算机网络，网络是怎么构成的？</h3><p><img src="/" alt="网络" class="lazyload" data-src="/images/socket/dome20200323/1.png"></p>
+<h3 id="什么是计算机网络，网络是怎么构成的？"><a href="#什么是计算机网络，网络是怎么构成的？" class="headerlink" title="什么是计算机网络，网络是怎么构成的？"></a>什么是计算机网络，网络是怎么构成的？</h3><p><img src="/" alt="网络" class="lazyload" data-src="/images/socket/dome01/1.png"></p>
 <p>在计算机领域中，网络是信息传输，接收，共享的虚拟平台</p>
 <p>通过它把各个点，面，体的信息联系到一起，从而实现这些资源的共享</p>
 <p>网络是人类发展史以来非常重要的发明，提高了科技和人类社会的发展</p>
@@ -637,11 +637,11 @@
 <p>Prot (端口)：用于区分计算机服务的一个访问手段</p>
 </blockquote>
 <hr>
-<h3 id="Soket-Demo分解"><a href="#Soket-Demo分解" class="headerlink" title="Soket Demo分解"></a>Soket Demo分解</h3><h5 id="C-S模式"><a href="#C-S模式" class="headerlink" title="C/S模式"></a>C/S模式</h5><p><img src="/" alt="C/S" class="lazyload" data-src="/images/socket/dome20200323/base0.png"></p>
+<h3 id="Soket-Demo分解"><a href="#Soket-Demo分解" class="headerlink" title="Soket Demo分解"></a>Soket Demo分解</h3><h5 id="C-S模式"><a href="#C-S模式" class="headerlink" title="C/S模式"></a>C/S模式</h5><p><img src="/" alt="C/S" class="lazyload" data-src="/images/socket/dome01/base0.png"></p>
 <blockquote>
 <p>在TCP/IP网络应用中，通信的两个进程间相互作用的主要模式是客户/服务器（Client/Server, C/S）模式，即客户向服务器发出服务请求，服务器接收到请求后，提供相应的服务。</p>
 </blockquote>
-<p><img src="/" alt="C/S" class="lazyload" data-src="/images/socket/dome20200323/base.png"></p>
+<p><img src="/" alt="C/S" class="lazyload" data-src="/images/socket/dome01/base.png"></p>
 <p>通过Socket建立一个简单的客户端与服务端的通信。</p>
 <hr>
 <h5 id="服务端的建立"><a href="#服务端的建立" class="headerlink" title="服务端的建立"></a>服务端的建立</h5><blockquote>
@@ -656,16 +656,16 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Socket client = serverSocket.accept();<span class="comment">//等待客户端连接</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<p><img src="/" alt="监听处理" class="lazyload" data-src="/images/socket/dome20200323/accept.png"></p>
+<p><img src="/" alt="监听处理" class="lazyload" data-src="/images/socket/dome01/accept.png"></p>
 <p>监听会一直等待到客户端的连接，当连接成功就进行下一步的消息处理</p>
 <p>消息监听处理代码</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (<span class="keyword">true</span>) &#123; <span class="comment">//循环监听</span></span><br><span class="line">        System.out.println(<span class="string">"监听"</span>);</span><br><span class="line">        <span class="comment">//等待客户端连接</span></span><br><span class="line">        Socket client = serverSocket.accept();</span><br><span class="line">        <span class="comment">//发送到客户端 </span></span><br><span class="line">        <span class="comment">//TODO 后续解说，这里体现监听处理操作</span></span><br><span class="line">        <span class="comment">//从客户端接收一行</span></span><br><span class="line">        <span class="comment">//TODO 后续解说，这里体现监听处理操作</span></span><br><span class="line">        System.out.println(<span class="string">"客户端消息：xxxx"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/" alt="通信过程过程" class="lazyload" data-src="/images/socket/dome20200323/accept2.gif"></p>
+<p><img src="/" alt="通信过程过程" class="lazyload" data-src="/images/socket/dome01/accept2.gif"></p>
 <p>如图客户1连接正在通信，此时一个新的用户的请求连接服务端未能及时响应，一直等待服务端的接收，直到客户1断开连接，服务端重新监听，才接收了客户2的连接，意味着上一个客户端连接如果没有断开，会一直占用服务端的处理</p>
 <hr>
-<p><img src="/" alt="多线程处理" class="lazyload" data-src="/images/socket/dome20200323/accept3.gif"></p>
+<p><img src="/" alt="多线程处理" class="lazyload" data-src="/images/socket/dome01/accept3.gif"></p>
 <p>本图为了实现多个客户端，我们一般通过开一个线程的方式去处理用户连接后的消息，服务端主要复制接收连接和创建线程去处理消息，这样就不会多客户的需要频繁等待，像上一个客户如果一直未响应就影响后续的客户的操作。</p>
 <p>多线程创建</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//这里采用嵌套静态子类，也可以单独创建一个外部类</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">ClientHandler</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">        <span class="keyword">private</span> Socket socket = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">private</span> <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ClientHandler</span><span class="params">(Socket socket)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.socket = socket;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">super</span>.run();</span><br><span class="line">            System.out.println(<span class="string">"新客户端连接-ip:"</span>+socket.getLocalAddress()+<span class="string">"/Port:"</span>+socket.getPort());</span><br><span class="line">            handleMsg(); <span class="comment">//自定义处理消息函数，见后文</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -710,7 +710,7 @@
     <title>二分搜索树</title>
     <url>/article/binarysearchtree/</url>
     <content><![CDATA[<p>Binary Search Tree</p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="/" alt="tree" class="lazyload" data-src="/images/BST/tree20200320/tree0.jpg"></p>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p><img src="/" alt="tree" class="lazyload" data-src="/images/BST/tree01/tree0.jpg"></p>
 <blockquote>
 <p> 二分搜索树是在二叉树结构上实现的一种数据结构；搜索树主要是用来实现快速查找的字典结构，结构主要特点，左小右大。 </p>
 </blockquote>
@@ -718,7 +718,7 @@
 <h3 id="功能概况"><a href="#功能概况" class="headerlink" title="功能概况"></a>功能概况</h3><p>类的定义,也分别介绍这些基础算法</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key,<span class="keyword">typename</span> Value&gt;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinarySearchTree</span> &#123;</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span>    <span class="comment">//节点结构体</span></span><br><span class="line">        Key key;Value value;Node* left; Node* right;</span><br><span class="line">        Node(Key key,Value value);</span><br><span class="line">        Node(Node* node);<span class="comment">//拷贝函数</span></span><br><span class="line">    &#125;;</span><br><span class="line">    Node * root; <span class="comment">//树根</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(Key key,Value value)</span></span>;<span class="comment">//插入</span></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">contain</span><span class="params">(Key key)</span></span>;<span class="comment">//判断键值是否存在</span></span><br><span class="line">    <span class="function">Value* <span class="title">search</span><span class="params">(Key key)</span></span>;<span class="comment">//查找</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">preOrder</span><span class="params">()</span></span>;<span class="comment">//深度优先遍历(DFS) 先序遍历</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">inOrder</span><span class="params">()</span></span>;<span class="comment">//深度优先遍历(DFS) 中序遍历 有序遍历二分搜索树</span></span><br><span class="line">    <span class="comment">//深度优先遍历(DFS) 后续遍历</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">postOrder</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">levelOrder</span><span class="params">()</span></span>;<span class="comment">//广度优先遍历(BFS) 层次遍历-队列实现</span></span><br><span class="line">    <span class="function">Key <span class="title">maximum</span><span class="params">()</span></span>;<span class="comment">//查找最大值</span></span><br><span class="line">    <span class="function">Key <span class="title">minimum</span><span class="params">()</span></span>;<span class="comment">//查找最小值</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeMin</span><span class="params">()</span></span>; <span class="comment">//删除最小值</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">removeMax</span><span class="params">()</span></span>; <span class="comment">//删除最大值</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">remove</span><span class="params">(Key key)</span></span>;<span class="comment">//删除节点  Hubbard Deletion思想</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroy</span><span class="params">(Node* node)</span></span>;<span class="comment">//销毁树 后序遍历的应用</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
-<h3 id="搜索树的插入及修改"><a href="#搜索树的插入及修改" class="headerlink" title="搜索树的插入及修改"></a>搜索树的插入及修改</h3><p><img src="/" alt="insert" class="lazyload" data-src="/images/BST/tree20200320/tree1.gif"></p>
+<h3 id="搜索树的插入及修改"><a href="#搜索树的插入及修改" class="headerlink" title="搜索树的插入及修改"></a>搜索树的插入及修改</h3><p><img src="/" alt="insert" class="lazyload" data-src="/images/BST/tree01/tree1.gif"></p>
 <blockquote>
 <p>那我们看插入结构的的动态图，小插左子树中，大插右子树中，最好实现思路就是递归策略</p>
 </blockquote>
@@ -739,11 +739,11 @@
 <h3 id="搜索树的查找"><a href="#搜索树的查找" class="headerlink" title="搜索树的查找"></a>搜索树的查找</h3><blockquote>
 <p>关于树的查找，这里先来分析的一下怎么找到一个树的最大值最小值</p>
 </blockquote>
-<p><img src="/" alt="search" class="lazyload" data-src="/images/BST/tree20200320/tree2.gif"></p>
+<p><img src="/" alt="search" class="lazyload" data-src="/images/BST/tree01/tree2.gif"></p>
 <blockquote>
 <p>再谈树的定义，左节点比根节点小，右节点比根节点小，可以把这看成一个子问题；那最小值不就在左子树里面的左子树的左节点，这一句话似乎有点递归，如果这有点绕，那看图可以知道最左边的那个节点就是最小值</p>
 </blockquote>
-<p><img src="/" alt="search" class="lazyload" data-src="/images/BST/tree20200320/tree3.gif"></p>
+<p><img src="/" alt="search" class="lazyload" data-src="/images/BST/tree01/tree3.gif"></p>
 <blockquote>
 <p>那么左子树的左节点不存在呢，那么看图很明显就看得出来是最左边的根节点，右子树也同理</p>
 </blockquote>
@@ -756,7 +756,7 @@
 <blockquote>
 <p>那我们再来看查找一个节点的逻辑，这里实现contain和search均属于查找基本的思路</p>
 </blockquote>
-<p><img src="/" alt="preOrder" class="lazyload" data-src="/images/BST/tree20200320/tree4.gif"></p>
+<p><img src="/" alt="preOrder" class="lazyload" data-src="/images/BST/tree01/tree4.gif"></p>
 <blockquote>
 <p>二分查找的思路还是很简单的，数组的二分查找使用折半法，这里通过左子树，右子树对半的思路</p>
 </blockquote>
@@ -768,15 +768,15 @@
 <p>contain实现判断key是否存在，search查找返回Value值，两者实现除了返回结果不一致，思路实现一模一样，本文二分搜索树以递归实现</p>
 </blockquote>
 <hr>
-<h3 id="深度优先遍历-DFS"><a href="#深度优先遍历-DFS" class="headerlink" title="深度优先遍历(DFS)"></a>深度优先遍历(DFS)</h3><p><img src="/" alt="preOrder" class="lazyload" data-src="/images/BST/tree20200320/tree5.gif"></p>
+<h3 id="深度优先遍历-DFS"><a href="#深度优先遍历-DFS" class="headerlink" title="深度优先遍历(DFS)"></a>深度优先遍历(DFS)</h3><p><img src="/" alt="preOrder" class="lazyload" data-src="/images/BST/tree01/tree5.gif"></p>
 <blockquote>
 <p>先序遍历：对任一子树，先访问根，然后遍历其左子树，最后遍历其右子树。(巧记根左右)</p>
 </blockquote>
-<p><img src="/" alt="inOrder" class="lazyload" data-src="/images/BST/tree20200320/tree6.gif"></p>
+<p><img src="/" alt="inOrder" class="lazyload" data-src="/images/BST/tree01/tree6.gif"></p>
 <blockquote>
 <p>中序遍历：对任一子树，先遍历其左子树，然后访问根，最后遍历其右子树。(巧记左根右)</p>
 </blockquote>
-<p><img src="/" alt="postOrder" class="lazyload" data-src="/images/BST/tree20200320/tree7.gif"></p>
+<p><img src="/" alt="postOrder" class="lazyload" data-src="/images/BST/tree01/tree7.gif"></p>
 <blockquote>
 <p>后序遍历：对任一子树，先遍历其左子树，然后遍历其右子树，最后访问根。(巧记左右根)</p>
 </blockquote>
@@ -796,7 +796,7 @@
 <h3 id="广度优先遍历-BFS"><a href="#广度优先遍历-BFS" class="headerlink" title="广度优先遍历(BFS)"></a>广度优先遍历(BFS)</h3><blockquote>
 <p>看完深度优先遍历，那就看一下广度优先遍历，也就是层次遍历</p>
 </blockquote>
-<p><img src="/" alt="BFS" class="lazyload" data-src="/images/BST/tree20200320/tree8.gif"></p>
+<p><img src="/" alt="BFS" class="lazyload" data-src="/images/BST/tree01/tree8.gif"></p>
 <blockquote>
 <p>按逐层遍历每一个节点，最简单的方式就是借助一个队列把每一层信息加入进来</p>
 </blockquote>
@@ -808,15 +808,15 @@
 <h3 id="二分搜索树删除"><a href="#二分搜索树删除" class="headerlink" title="二分搜索树删除"></a>二分搜索树删除</h3><blockquote>
 <p>删除节点，也是先来看看删除最大最小如何实现，最大最小节点上文也介绍了</p>
 </blockquote>
-<p><img src="/" alt="min" class="lazyload" data-src="/images/BST/tree20200320/tree9.gif"></p>
+<p><img src="/" alt="min" class="lazyload" data-src="/images/BST/tree01/tree9.gif"></p>
 <blockquote>
 <p>最小节点不存在左节点但存在右节点;</p>
 </blockquote>
-<p><img src="/" alt="max" class="lazyload" data-src="/images/BST/tree20200320/tree10.gif"></p>
+<p><img src="/" alt="max" class="lazyload" data-src="/images/BST/tree01/tree10.gif"></p>
 <blockquote>
 <p>最大节点不存在右节点但存在左节点;</p>
 </blockquote>
-<p><img src="/" alt="max" class="lazyload" data-src="/images/BST/tree20200320/tree11.gif"></p>
+<p><img src="/" alt="max" class="lazyload" data-src="/images/BST/tree01/tree11.gif"></p>
 <blockquote>
 <p>最大最小节点不存在左右子节点</p>
 </blockquote>
@@ -831,7 +831,7 @@
 <blockquote>
 <p>那么删除任意一个节点会遇到的情况，除了上述存在但个子节点还在无节点，还存在两个节点均存在的情况</p>
 </blockquote>
-<p><img src="/" alt="remove" class="lazyload" data-src="/images/BST/tree20200320/tree12.gif"></p>
+<p><img src="/" alt="remove" class="lazyload" data-src="/images/BST/tree01/tree12.gif"></p>
 <blockquote>
 <p>根据Hubbard Deletion思想的做法，可以从右子树中找到一个最小值，或者左子树中找到一个最大值来作为后继替换当前节点</p>
 </blockquote>
@@ -848,10 +848,10 @@
       </categories>
       <tags>
         <tag>二分查找</tag>
-        <tag>搜索树</tag>
-        <tag>树</tag>
         <tag>BFS</tag>
         <tag>DFS</tag>
+        <tag>搜索树</tag>
+        <tag>树</tag>
       </tags>
   </entry>
   <entry>
